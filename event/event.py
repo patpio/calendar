@@ -1,8 +1,11 @@
 from datetime import datetime
 
+from helpers.helpers import uuid
+
 
 class Event:
     def __init__(self, name, start_time, duration, location, owner, participants):
+        self.id = uuid()
         self.name = name
         self.start_time = datetime.strptime(start_time, "%d/%m/%y %H:%M")
         self._duration = duration
@@ -30,5 +33,5 @@ class Event:
         return f'Time to event: {days} days, {hours} hours, {minutes} minutes.'
 
     def __str__(self):
-        return f'class Event(name: {self.name}, start_time: {self.start_time}, created: {self.created}, ' \
-               f'{self.time_to_event})'
+        return f'class Event(id: {self.id}, name: {self.name}, start_time: {self.start_time}, ' \
+               f'created: {self.created}, {self.time_to_event})'
