@@ -1,4 +1,3 @@
-# TODO add getters and setters
 from datetime import datetime
 
 from helpers.helpers import uuid
@@ -8,11 +7,11 @@ class Event:
     def __init__(self, name, start_time, duration, location, owner, participants):
         self.id = uuid()
         self._name = name
-        self.start_time = datetime.strptime(start_time, "%d/%m/%y %H:%M")
+        self._start_time = datetime.strptime(start_time, "%d/%m/%y %H:%M")
         self._duration = duration
-        self.location = location
+        self._location = location
         self.owner = owner
-        self.participants = participants
+        self._participants = participants
         self.created = datetime.now()
 
     @property
@@ -41,6 +40,30 @@ class Event:
     def name(self, new_name):
         self._name = new_name
 
+    @property
+    def start_time(self):
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, new_start_time):
+        self._start_time = datetime.strptime(new_start_time, "%d/%m/%y %H:%M")
+
+    @property
+    def location(self):
+        return self._location
+
+    @location.setter
+    def location(self, new_location):
+        self._location = new_location
+
+    @property
+    def participants(self):
+        return self._participants
+
+    @participants.setter
+    def participants(self, new_participants):
+        self._participants = new_participants
+
     def __str__(self):
         return f'class Event(id: {self.id}, name: {self.name}, start_time: {self.start_time}, ' \
-               f'created: {self.created}, {self.time_to_event}, duration: {self._duration})'
+               f'created: {self.created}, {self.time_to_event}, duration: {self.duration}, location: {self.location})'

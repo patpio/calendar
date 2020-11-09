@@ -19,9 +19,16 @@ for x in range(50):
 # print(events.delete_event(3))
 events.update_event(3, {'name': 'yolo'})
 events.update_event(3, {'duration': 22})
-# TODO add support for multiple updates (zeby zmodyfikowac kilka na raz, jeden slownik w ktorym jest wiele par key:val)
+events.update_event(49, {'name': 'elo', 'start_time': '10/11/20 15:00', 'duration': 6})
+events.update_event(48, {'name': 'hi there', 'duration': 6, 'location': 'Krk'})
+events.update_event(47, {'name': 'hi there', 'duration': 6, 'location': 'Krk'})
+
 # print(events.get_event(3))
 
-events.sort_config = []
-for event in events.sort_event():
+# events.sort_config = ['name']
+# for event in events.sort_event():
+#     print(event)
+
+events.filter_config = {'name': 'hi there', 'duration': 6, 'location': 'Krk'}
+for event in events.filter_event():
     print(event)
