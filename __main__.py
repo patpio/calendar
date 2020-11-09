@@ -1,3 +1,4 @@
+from datetime import datetime
 from random import randint
 
 from event import Event
@@ -25,10 +26,18 @@ events.update_event(47, {'name': 'hi there', 'duration': 6, 'location': 'Krk'})
 
 # print(events.get_event(3))
 
-# events.sort_config = ['name']
+events.sort_config = ['start_time']
 # for event in events.sort_event():
 #     print(event)
 
 events.filter_config = {'name': 'hi there', 'duration': 6, 'location': 'Krk'}
-for event in events.filter_event():
+events.filter_config = {
+    'duration': {'min': 55, 'max': None},
+    'start_time': {'min': datetime.strptime('1.1.21', '%d.%m.%y'), 'max': datetime.strptime('1.10.21', '%d.%m.%y')}
+}
+
+for event in events.get_events():
     print(event)
+print(len(list(events.get_events())))
+
+# TODO przygotowac czysty projekt i zapisac na githubie
