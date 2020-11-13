@@ -37,3 +37,5 @@ CRUD:
 - Read
 - Update
 - Delete
+
+diagram klas

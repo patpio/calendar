@@ -30,7 +30,7 @@ events.sort_config = ['start_time']
 # for event in events.sort_event():
 #     print(event)
 
-events.filter_config = {'name': 'hi there', 'duration': 6, 'location': 'Krk'}
+# events.filter_config = {'name': 'hi there', 'duration': 6, 'location': 'Krk'}
 events.filter_config = {
     'duration': {'min': 55, 'max': None},
     'start_time': {'min': datetime.strptime('1.1.21', '%d.%m.%y'), 'max': datetime.strptime('1.10.21', '%d.%m.%y')}
