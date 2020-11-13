@@ -39,3 +39,4 @@ CRUD:
 - Delete
 
 diagram klas
+abc - abstract class
