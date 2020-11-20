@@ -20,9 +20,15 @@ class Event:
 
     @duration.setter
     def duration(self, val):
-        if val < 5:
-            raise ValueError(f"Meeting duration under 5 minutes doesn't make sense ({val}).")
-        self._duration = val
+        try:
+            int(val)
+        except ValueError:
+            print('Duration must be a number')
+        else:
+            if int(val) < 5:
+                print(f"Meeting duration under 5 minutes doesn't make sense ({val}).")
+            else:
+                self._duration = int(val)
 
     @property
     def time_to_event(self):
@@ -46,7 +52,10 @@ class Event:
 
     @start_time.setter
     def start_time(self, new_start_time):
-        self._start_time = datetime.strptime(new_start_time, "%d/%m/%y %H:%M")
+        try:
+            self._start_time = datetime.strptime(new_start_time, "%d/%m/%y %H:%M")
+        except ValueError:
+            print('Wrong data format')
 
     @property
     def location(self):

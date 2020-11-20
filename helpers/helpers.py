@@ -18,18 +18,16 @@ def gen_id():
 uuid = gen_id()
 
 
-def parse_user_update(key, val):
-    if key == 'duration':
-        return int(val)
-    else:
-        return val
-
-
 def parse_user_filter(key, val):
-    if key in ['start_time', 'duration']:
-        if val:
-            return datetime.strptime(val, '%d/%m/%y') if key == 'start_time' else int(val)
+    if val:
+        if key in ['start_time', 'duration']:
+            try:
+                parse_val = datetime.strptime(val, '%d/%m/%y') if key == 'start_time' else int(val)
+            except ValueError:
+                print("Wrong data format")
+            else:
+                return parse_val
         else:
-            return None
+            return val
     else:
-        return val
+        return None
