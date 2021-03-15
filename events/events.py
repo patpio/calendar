@@ -33,15 +33,6 @@ class Events:
     def update_event(self, idx, config):
         event = self.get_event(idx)
         if event:
-            # key = list(config.keys())[0]
-            keys = [*config]  # *config - pobiera wszystkie klucze ze slownika # notepad https://www.sublimetext.com/3
+            keys = [*config]
             for key in keys:
                 setattr(event, key, config[key])
-
-    # @Sort.sort
-    # def sort_event(self):
-    #     return self._events
-    #
-    # @Filter.filter
-    # def filter_event(self):
-    #     return self._events

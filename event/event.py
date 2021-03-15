@@ -26,9 +26,8 @@ class Event:
             print('Duration must be a number')
         else:
             if int(val) < 5:
-                print(f"Meeting duration under 5 minutes doesn't make sense ({val}).")
-            else:
-                self._duration = int(val)
+                raise ValueError(f"Meeting duration under 5 minutes doesn't make sense ({val}).")
+            self._duration = int(val)
 
     @property
     def time_to_event(self):

@@ -15,7 +15,7 @@ class FilterSortEvent(AbsCommand):
             filter_value_min = parse_user_filter(filter_key, input('Provide min value\n'))
             filter_value_max = parse_user_filter(filter_key, input('Provide max value\n'))
 
-            AbsCommand.events.filter_config[filter_key] = {'min': filter_value_min, 'max': filter_value_max} # self -> Abscommand
+            AbsCommand.events.filter_config[filter_key] = {'min': filter_value_min, 'max': filter_value_max}
 
         sort_keys = input('Provide sort keys (omit if not desired)\n')
         AbsCommand.events.sort_config = findall(r'\w+', sort_keys)

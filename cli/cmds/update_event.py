@@ -21,4 +21,4 @@ class UpdateEvent(AbsCommand):
                 try:
                     self.events.update_event(idx, config)
                 except ValueError:
-                    print('Meeting ...') #setter wrocic do pierwszej formy
+                    print("Meeting duration under 5 minutes doesn't make sense.")
