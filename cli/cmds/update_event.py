@@ -18,4 +18,7 @@ class UpdateEvent(AbsCommand):
                     break
                 config_value = input('Provide update value\n')
                 config = {config_key: config_value}
-                self.events.update_event(idx, config)
+                try:
+                    self.events.update_event(idx, config)
+                except ValueError:
+                    print('Meeting ...') #setter wrocic do pierwszej formy
